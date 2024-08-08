@@ -23,7 +23,7 @@ app.use(session({
   app.use(passport.initialize());
   app.use(passport.session());
 
-// Test database connection and sync models
+
 sequelize.sync()
   .then(() => {
     console.log('Database connected and models synced');
