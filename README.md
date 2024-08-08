@@ -64,7 +64,7 @@ FACEBOOK_CLIENT_SECRET=your_facebook_client_secret
 Start the server:
 
 ```bash
-npm start
+node app.js
 ```
 
 it should show this if work correctly
