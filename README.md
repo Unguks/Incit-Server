@@ -1,4 +1,4 @@
-# smart-city-hub-server
+# Incit-server
 
 The Incit-Server API serves as the backend for a web application for logging in and signup either using password/facebook/google. It also serve as assignment project from INCIT 
 
