@@ -36,7 +36,7 @@ The Incit-Server API serves as the backend for a web application for logging in 
 3. Install dependencies:
 
    ```bash
-   npm install
+   npm start
    ```
 
 ### Environment Variables
