@@ -26,12 +26,18 @@ app.use(session({
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(cors({ credentials: true, origin: "https://comforting-strudel-ba9e8c.netlify.app" }));
+  app.use(cors({ credentials: true, origin: "https://localhost:3000" }));
 
-
+sequelize.authenticate()
+  .then(() => {
+    console.log('Database connected...');
+  })
+  .catch((err) => {
+    console.error('Error connecting', err);
+  })
 sequelize.sync()
   .then(() => {
-    console.log('Database connected and models synced');
+    console.log('Database models synced');
   })
   .catch((err) => {
     console.error('Database connection error:', err);
