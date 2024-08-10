@@ -1,9 +1,12 @@
 const express = require('express');
 const session = require('express-session');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const sequelize = require('./config/db');
 const passport = require('./config/passport');
+const cors = require("cors");
+
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 
@@ -22,6 +25,8 @@ app.use(session({
   
   app.use(passport.initialize());
   app.use(passport.session());
+
+  app.use(cors({ credentials: true, origin: "https://comforting-strudel-ba9e8c.netlify.app" }));
 
 
 sequelize.sync()
