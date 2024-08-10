@@ -70,8 +70,9 @@ npm start
 it should show this if work correctly
 
 ```bash
-Database connected and models synced
-Server is Running On:3000
+Server is running on port 3000
+Database connected...
+Database models synced
 ```
 
 ## Contributing
