@@ -17,7 +17,7 @@ The Incit-Server API serves as the backend for a web application for logging in 
 ### Prerequisites
 
 - Node.js installed
-- SQL-based relational database installed and running
+- MySQL is setup and running
 
 ### Installation
 
@@ -36,7 +36,7 @@ The Incit-Server API serves as the backend for a web application for logging in 
 3. Install dependencies:
 
    ```bash
-   npm start
+   npm install
    ```
 
 ### Environment Variables
@@ -64,7 +64,7 @@ FACEBOOK_CLIENT_SECRET=your_facebook_client_secret
 Start the server:
 
 ```bash
-node app.js
+npm start 
 ```
 
 it should show this if work correctly
