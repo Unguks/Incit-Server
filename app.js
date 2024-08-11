@@ -26,7 +26,7 @@ app.use(session({
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(cors({ credentials: true, origin: "https://localhost:3000" }));
+  app.use(cors({ credentials: true, origin: "https://localhost:3001", methods: ["GET", "POST"] }));
 
 sequelize.authenticate()
   .then(() => {
