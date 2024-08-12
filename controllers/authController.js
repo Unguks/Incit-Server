@@ -30,7 +30,7 @@ exports.signup = async (req, res) => {
 
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
-    const verificationLink = `http://localhost:3000/auth/verify-email?token=${token}`;
+    const verificationLink = `http://localhost:5000/auth/verify-email?token=${token}`;
 
     await transporter.sendMail({
       to: email,

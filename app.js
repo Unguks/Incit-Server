@@ -14,9 +14,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.use('/auth', authRoutes);
-app.use('/user', userRoutes);
-
 app.use(session({
     secret: process.env.JWT_SECRET,
     resave: false,
@@ -26,7 +23,7 @@ app.use(session({
   app.use(passport.initialize());
   app.use(passport.session());
 
-  app.use(cors({ credentials: true, origin: "https://localhost:3001", methods: ["GET", "POST"] }));
+  app.use(cors({ credentials: true, origin: 'http://localhost:3001', methods: ["GET", "POST"] }));
 
 sequelize.authenticate()
   .then(() => {
@@ -43,7 +40,10 @@ sequelize.sync()
     console.error('Database connection error:', err);
   });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.use('/auth', authRoutes);
+app.use('/user', userRoutes);
