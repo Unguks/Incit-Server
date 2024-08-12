@@ -15,6 +15,11 @@ passport.use(new GoogleStrategy({
       user = await User.create({ googleId: profile.id, email: profile.emails[0].value, name: profile.displayName });
     }
 
+    await user.update({
+      loginCount: user.loginCount + 1 || 1,
+      lastLogin: new Date(),
+    });
+
     done(null, user);
   } catch (err) {
     done(err, false);

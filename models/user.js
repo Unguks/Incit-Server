@@ -33,6 +33,18 @@ const User = sequelize.define('User', {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+  lastLogin: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  loginCount: {
+    type: DataTypes.INTEGER,
+    defaultValue: 0,
+  },
+  lastLogout: {
+    type: DataTypes.DATE,
+    allowNull: true,
+  }
 });
 
 module.exports = User;

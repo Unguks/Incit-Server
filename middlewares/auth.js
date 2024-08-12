@@ -3,6 +3,9 @@ const User = require('../models/user');
 
 exports.isAuthenticated = async (req, res, next) => {
   const token = req.cookies.token;
+  if (req.isAuthenticated()) {
+    return next();
+  }
 
   if (!token) {
     return res.status(401).json({ message: 'Not authenticated' });

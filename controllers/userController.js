@@ -75,8 +75,34 @@ exports.getDashboard = async (req, res) => {
   };
 
   exports.logout = async (req, res) => {
+    const user = req.user;
+      
+      if (user) {
+        await user.update({
+          lastLogout: new Date(),
+        });
+      }
+
     res.clearCookie('token');
     res.json({ message: 'Logout successful' });
   };
+
+  // exports.logout = async (req, res) => {
+  //   try {
+  //     const user = req.user;
+      
+  //     if (user) {
+  //       await user.update({
+  //         lastLogout: new Date(),
+  //       });
+  //     }
+  
+  //     res.clearCookie('token');
+  //     req.logout(); 
+  //     res.status(200).json({ message: 'Logout successful' });
+  //   } catch (err) {
+  //     res.status(500).json({ message: 'Error logging out', error: err.message });
+  //   }
+  // };
   
   
