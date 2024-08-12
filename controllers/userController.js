@@ -82,9 +82,15 @@ exports.getDashboard = async (req, res) => {
           lastLogout: new Date(),
         });
       }
-
-    res.clearCookie('token');
-    res.json({ message: 'Logout successful' });
+  
+    req.logout(function(err) {
+      if (err) {
+        return res.status(500).json({ message: 'Error logging out', error: err.message });
+      }
+  
+      res.clearCookie('token');
+      res.json({ message: 'Logout successful' });
+    });
   };
 
   // exports.logout = async (req, res) => {
